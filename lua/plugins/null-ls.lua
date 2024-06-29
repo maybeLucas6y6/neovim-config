@@ -8,7 +8,7 @@ return {
         null_ls.setup({
             sources = {
                 null_ls.builtins.formatting.stylua,
-                --null_ls.builtins.diagnostics.eslint, -- todo this line errors at healthcheck
+                --null_ls.builtins.diagnostics.eslint, --TODO: this line errors at healthcheck
                 null_ls.builtins.completion.spell,
 
                 --null_ls.builtins.completion.clangd,
@@ -18,5 +18,7 @@ return {
         })
 
         vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {})
+        vim.keymap.set("n", "<leader>rr", vim.lsp.buf.rename, {})
+        vim.keymap.set("n", "<leader>E", vim.diagnostic.open_float, {})
     end,
 }

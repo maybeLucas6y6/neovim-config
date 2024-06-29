@@ -10,7 +10,7 @@ return {
     config = function()
         require("barbar").setup()
 
-        local opts = { noremap = true, silent = true } -- todo vezi ce s astea
+        local opts = { noremap = true, silent = true } -- TODO: vezi ce s astea
         vim.keymap.set("n", "<A-,>", vim.cmd.BufferPrevious, opts)
         vim.keymap.set("n", "<A-.>", vim.cmd.BufferNext, opts)
         vim.keymap.set("n", "<A-<>", vim.cmd.BufferMovePrevious, opts)

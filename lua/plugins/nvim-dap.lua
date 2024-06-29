@@ -38,7 +38,7 @@ return {
             cwd = "${workspaceFolder}",
             stopAtBeginningOfMainSubprogram = false,
             args = function()
-                local input = vim.fn.input('Arguments: ')
+                local input = vim.fn.input("Arguments: ")
                 if input == "" then
                     return {}
                 end

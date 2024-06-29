@@ -6,6 +6,7 @@ return {
         require("catppuccin").setup({
             integrations = {
                 barbar = true,
+                treesitter = true,
             },
         })
 

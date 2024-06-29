@@ -15,6 +15,11 @@ return {
                 adaptive_size = true,
                 side = "left",
                 preserve_window_proportions = true,
+                cursorline = true,
+                width = {
+                    max = 64,
+                    padding = 2,
+                }
             },
             git = {
                 enable = true,
