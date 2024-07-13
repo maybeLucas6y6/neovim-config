@@ -28,44 +28,7 @@ return {
             },
         })
 
-        local basic_gdb_configuration = {
-            --name = "debug",
-            type = "gdb",
-            request = "launch",
-            program = function()
-                return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
-            end,
-            cwd = "${workspaceFolder}",
-            stopAtBeginningOfMainSubprogram = false,
-            args = function()
-                local input = vim.fn.input("Arguments: ")
-                if input == "" then
-                    return {}
-                end
-                return vim.split(input, " ")
-            end,
-            setupCommands = {
-                {
-                    text = "-enable-pretty-printing",
-                    description =  "enable pretty printing",
-                    ignoreFailures = false,
-                },
-            },
-        }
-
-        local c_gdb_config = basic_gdb_configuration
-        c_gdb_config.name = "debug c"
-        local cpp_gdb_config = basic_gdb_configuration
-        cpp_gdb_config.name = "debug cpp"
-
-        dap.configurations = {
-            c = {
-                c_gdb_config,
-            },
-            cpp = {
-                cpp_gdb_config,
-            },
-        }
+        dap.configurations = require("debug-configs")
 
         dapui.setup()
         local open_dapui = function()

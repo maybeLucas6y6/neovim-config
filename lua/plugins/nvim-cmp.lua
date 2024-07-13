@@ -52,17 +52,6 @@ return {
             )
         })
 
-        local lspconfig = require("lspconfig")
-        local capabilities = require("cmp_nvim_lsp").default_capabilities()
-        local utf16capabilities = vim.lsp.protocol.make_client_capabilities()
-        utf16capabilities.offsetEncoding = { "utf-16" }
-
-        lspconfig.lua_ls.setup({ capabilities = capabilities })
-        lspconfig.clangd.setup({ capabilities = utf16capabilities })
-        lspconfig.rust_analyzer.setup({ capabilities = capabilities })
-        lspconfig.cmake.setup({ capabilities = capabilities })
-        lspconfig.pyright.setup({ capabilities = capabilities })
-
         vim.keymap.set("n", "K", vim.lsp.buf.hover)
         vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition)
         vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references)
