@@ -21,7 +21,10 @@ return {
                     entry_filter = function(entry, ctx)
                         return require("cmp.types").lsp.CompletionItemKind[entry:get_kind()] ~= "Text"
                     end
-                }
+                },
+                {
+                    name = "crates",
+                },
             },
             mapping = cmp.mapping.preset.insert({
                 ["<C-b>"] = cmp.mapping.scroll_docs(-4),

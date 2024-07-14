@@ -9,12 +9,10 @@ return {
     },
     config = function()
         require("nvim-dap-virtual-text").setup()
+        -- I've seen some put, but idk if needed
+        -- vim.g.dap_virtual_text = true
+
         local dap, dapui = require("dap"), require("dapui")
-        dap.adapters.gdb = {
-            type = "executable",
-            command = "gdb",
-            args = { "-i", "dap" }
-        }
 
         require("cmp").setup({
             enabled = function()
@@ -28,6 +26,7 @@ return {
             },
         })
 
+        dap.adapters = require("debug-adapters")
         dap.configurations = require("debug-configs")
 
         dapui.setup()
