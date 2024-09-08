@@ -33,6 +33,7 @@ vim.g.colorline = 80
 vim.g.mapleader = " "
 
 vim.opt.updatetime = 50
+vim.g.signcolumn = "80"
 
 -- for nvim-tree, TODO: idk what they do yet
 vim.g.loaded_netrw = 1
