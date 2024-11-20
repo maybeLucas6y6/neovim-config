@@ -19,6 +19,11 @@ return {
 
             -- bash
             "bash-language-server",
+
+            -- web
+            "eslint-lsp",
+            "typescript-language-server",
+            "tailwindcss-language-server",
         },
     },
     config = function()
