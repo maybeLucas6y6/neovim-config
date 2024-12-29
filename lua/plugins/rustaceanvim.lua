@@ -1,20 +1,27 @@
 local rustacean = {
     "mrcjkb/rustaceanvim",
-    version = '^4',
+    version = "^4",
     ft = { "rust" },
     dependencies = "neovim/nvim-lspconfig",
 }
 
-local bufnr = vim.api.nvim_get_current_buf()
-vim.keymap.set(
-    "n",
-    "<leader>a",
-    function()
-        vim.cmd.RustLsp("codeAction") -- supports rust-analyzer's grouping
-        -- or vim.lsp.buf.codeAction() if you don't want grouping.
-    end,
-    { silent = true, buffer = bufnr }
-)
+vim.g.rustaceanvim = {
+	server = {
+		on_attach = function(client, bufnr)
+			vim.keymap.set("n", "<leader>a", function()
+				vim.cmd.RustLsp("codeAction") -- supports rust-analyzer's grouping
+				-- or vim.lsp.buf.codeAction() if you don't want grouping.
+			end, { silent = true, buffer = bufnr })
+
+			vim.keymap.set(
+				"n",
+				"<leader>cb",
+				":! cargo build<CR>",
+				{ noremap = true, buffer = bufnr, desc = "cargo build project" }
+			)
+		end,
+	},
+}
 
 --[[ THIS IS HOW YOU OVERRIDE THE DEFAULT CONFIG
 vim.g.rustaceanvim = {
